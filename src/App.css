@@ -4602,3 +4602,7 @@ select {
   font-size: 15px;
   font-weight: 600;
 }
+.modalUpdateFreight input {
+  display: block;
+  width: 100%;
+}

@@ -740,7 +740,6 @@ const Addfright = () => {
                           </p>
                         </div>
                       </div>
-
                       <div className="row">
                         <div className="col-6">
                           <label>Assign to Clearing</label>
@@ -795,7 +794,6 @@ const Addfright = () => {
                           </p>
                         </div>
                       </div>
-
                       <div className="row">
                         {/* <div className="col-6 ">
                         <label>Hazardous</label>

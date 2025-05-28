@@ -11,6 +11,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import Swal from "sweetalert2";
 import SupportAgentSharpIcon from "@mui/icons-material/SupportAgentSharp";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
@@ -1020,7 +1021,7 @@ export default function UserFreight() {
                                   </div>
                                 </td>
                                 <div
-                                  className="modal fade modalManageFreight md_update"
+                                  className="modal fade modalManageFreight md_update modalUpdateFreight"
                                   id="staticBackdrop"
                                   data-bs-backdrop="static"
                                   data-bs-keyboard="false"
@@ -1042,10 +1043,12 @@ export default function UserFreight() {
                                           className="btn-close"
                                           data-bs-dismiss="modal"
                                           aria-label="Close"
-                                        />
+                                        >
+                                          <CloseIcon />
+                                        </button>
                                       </div>
                                       <div className="modal-body">
-                                        <div className="frightFormSec">
+                                        <div className=" ">
                                           <div className="container">
                                             <div className="borderShip mt-3">
                                               <h4>Freight Details</h4>
@@ -1291,7 +1294,7 @@ export default function UserFreight() {
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div className="borderShip1">
+                                              <div className="borderShip1 pb-3">
                                                 <h4>Location details</h4>
                                                 <div className="row">
                                                   <div className="col-lg-6">
@@ -1633,7 +1636,7 @@ export default function UserFreight() {
                                                   </div>
                                                 </div>
                                                 <div className="col-lg-6">
-                                                  <div className="mb-3">
+                                                  <div>
                                                     <label>Commodity</label>
                                                     <select
                                                       type="text"
@@ -1642,7 +1645,6 @@ export default function UserFreight() {
                                                       value={
                                                         inputdata.commodity
                                                       }
-                                                      className="mb-3"
                                                     >
                                                       <option>Select...</option>
                                                       {apidata &&
@@ -1667,7 +1669,7 @@ export default function UserFreight() {
                                                   </div>
                                                 </div>
                                                 <div className="col-lg-6">
-                                                  <div className="mb-3">
+                                                  <div>
                                                     <label>
                                                       Add Attachment
                                                     </label>
@@ -1677,7 +1679,6 @@ export default function UserFreight() {
                                                       onChange={
                                                         handleupdateapifile
                                                       }
-                                                      className="mb-3"
                                                     />
                                                   </div>
                                                 </div>
@@ -1749,26 +1750,31 @@ export default function UserFreight() {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                height: 250,
-                width: 350,
                 bgcolor: "background.paper",
                 boxShadow: 24,
               }}
             >
-              <h2 id="modal-modal-title">Filter</h2>
-              <h5>Attach Quote</h5>
-              <input
-                type="file"
-                className="border px-3 rounded py-2 my-2 mx-2"
-                onChange={handlefilechange}
-              ></input>
-              <Button
-                variant="contained"
-                className="mt-5"
-                onClick={handlepostimage}
-              >
-                Apply
-              </Button>
+              <div className="modal-header">
+                <h2 id="modal-modal-title">Filter</h2>
+                <button className="btn btn-close" onClick={closeModal1}>
+                  <CloseIcon />
+                </button>
+              </div>
+
+              <div className="newModalGap">
+                <h5 className="mb-0">Attach Quote</h5>
+                <input
+                  type="file"
+                  className="border px-3 rounded py-2 my-2"
+                  onChange={handlefilechange}
+                ></input>
+              </div>
+
+              <div className="modal-footer">
+                <Button variant="contained" className="mb-3" onClick={handlepostimage}>
+                  Apply
+                </Button>
+              </div>
             </Box>
           </Modal>
           <Modal
@@ -1783,161 +1789,167 @@ export default function UserFreight() {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                height: 500,
-                overflow: "scroll",
-                width: 600,
+                minWidth: 450,
                 bgcolor: "background.paper",
                 boxShadow: 24,
-                p: 4,
               }}
             >
-              <h2 id="modal-modal-title">Filter</h2>
-              <div className="row my-3  ">
-                <div className="col-6">
-                  <label>Delivery Type</label>
-                  <select
-                    name="type"
-                    onChange={handlechange}
-                    className="form-control"
-                  >
-                    <option value="">Select</option>
-                    <option value="express">Express</option>
-                    <option value="normal">Consolidation</option>
-                  </select>
-                </div>
-                <div className="col-6">
-                  <label>Priority </label>
-                  <div className="shipRefer1 d-flex">
-                    <div>
-                      <input
-                        type="radio"
-                        id="shipper"
-                        name="priority"
-                        style={{ cursor: "pointer" }}
-                        value="High"
-                        onChange={handlechange}
-                      />
-                      <label htmlFor="shipper">High</label>
-                    </div>
-                    <div>
-                      <input
-                        type="radio"
-                        id="shipper2"
-                        style={{ cursor: "pointer" }}
-                        name="priority"
-                        value="Medium"
-                        onChange={handlechange}
-                      />
-                      <label htmlFor="consignee">Medium</label>
-                    </div>
-                    <div>
-                      <input
-                        type="radio"
-                        id="shipper3"
-                        name="priority"
-                        style={{ cursor: "pointer" }}
-                        value="Low"
-                        onChange={handlechange}
-                      />
-                      <label htmlFor="mediumPr">Low</label>
+              <div className="modal-header">
+                <h2 id="modal-modal-title">Filter</h2>
+                <button className="btn btn-close" onClick={closeModal}>
+                  <CloseIcon />
+                </button>
+              </div>
+              <div className="newModalGap">
+                <div className="row my-3">
+                  <div className="col-6">
+                    <label>Delivery Type</label>
+                    <select
+                      name="type"
+                      onChange={handlechange}
+                      className="form-control"
+                    >
+                      <option value="">Select</option>
+                      <option value="express">Express</option>
+                      <option value="normal">Consolidation</option>
+                    </select>
+                  </div>
+                  <div className="col-6">
+                    <label>Priority </label>
+                    <div className="shipRefer1 d-flex">
+                      <div>
+                        <input
+                          type="radio"
+                          id="shipper"
+                          name="priority"
+                          style={{ cursor: "pointer" }}
+                          value="High"
+                          onChange={handlechange}
+                        />
+                        <label htmlFor="shipper">High</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="shipper2"
+                          style={{ cursor: "pointer" }}
+                          name="priority"
+                          value="Medium"
+                          onChange={handlechange}
+                        />
+                        <label htmlFor="consignee">Medium</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="shipper3"
+                          name="priority"
+                          style={{ cursor: "pointer" }}
+                          value="Low"
+                          onChange={handlechange}
+                        />
+                        <label htmlFor="mediumPr">Low</label>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div className="row mb-3">
+                  <div className="col-6">
+                    <label>Country of Origin</label>
+                    <select
+                      name="origin"
+                      onChange={handlechange}
+                      className="form-control"
+                    >
+                      <option value="">Select</option>
+                      {updatedata &&
+                        updatedata.length > 0 &&
+                        updatedata.map((item, index) => {
+                          return (
+                            <>
+                              <option value={item.id}>{item.name}</option>
+                            </>
+                          );
+                        })}
+                    </select>
+                  </div>
+                  <div className="col-6">
+                    <label>Delivery to Country </label>
+                    <select
+                      name="destination"
+                      onChange={handlechange}
+                      className="form-control"
+                    >
+                      <option value="">Select</option>
+                      {updatedata &&
+                        updatedata.length > 0 &&
+                        updatedata.map((item, index) => {
+                          return (
+                            <>
+                              <option value={item.id}>{item.name}</option>
+                            </>
+                          );
+                        })}
+                    </select>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col-6">
+                    <label>Start Date</label>
+                    <input
+                      type="date"
+                      id="shipper3"
+                      name="startDate"
+                      style={{ cursor: "pointer" }}
+                      className="form-control"
+                      onChange={handlechange}
+                    />
+                  </div>
+                  <div className="col-6">
+                    <label>End Date </label>
+                    <input
+                      type="date"
+                      id="shipper3"
+                      name="endDate"
+                      style={{ cursor: "pointer" }}
+                      className="form-control"
+                      onChange={handlechange}
+                    />
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col-6">
+                    <label>Freight</label>
+                    <select
+                      name="freight"
+                      onChange={handlechange}
+                      className="form-control"
+                    >
+                      <option value="">Select...</option>
+                      <option value="Sea">Sea</option>
+                      <option value="Air">Air</option>
+                      <option value="Road">Road</option>
+                    </select>
+                  </div>
+                  <div className="col-6">
+                    <label>freight Type </label>
+                    <select
+                      name="type"
+                      onChange={handlechange}
+                      className="form-control"
+                    >
+                      <option value="">Select...</option>
+                      <option value="express">Express</option>
+                      <option value="normal">Normal</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div className="row mb-3">
-                <div className="col-6">
-                  <label>Country of Origin</label>
-                  <select
-                    name="origin"
-                    onChange={handlechange}
-                    className="form-control"
-                  >
-                    <option value="">Select</option>
-                    {updatedata &&
-                      updatedata.length > 0 &&
-                      updatedata.map((item, index) => {
-                        return (
-                          <>
-                            <option value={item.id}>{item.name}</option>
-                          </>
-                        );
-                      })}
-                  </select>
-                </div>
-                <div className="col-6">
-                  <label>Delivery to Country </label>
-                  <select
-                    name="destination"
-                    onChange={handlechange}
-                    className="form-control"
-                  >
-                    <option value="">Select</option>
-                    {updatedata &&
-                      updatedata.length > 0 &&
-                      updatedata.map((item, index) => {
-                        return (
-                          <>
-                            <option value={item.id}>{item.name}</option>
-                          </>
-                        );
-                      })}
-                  </select>
-                </div>
+              <div className="modal-footer mb-3">
+                <Button variant="contained" onClick={postData}>
+                  Apply
+                </Button>
               </div>
-              <div className="row mb-3">
-                <div className="col-6">
-                  <label>Start Date</label>
-                  <input
-                    type="date"
-                    id="shipper3"
-                    name="startDate"
-                    style={{ cursor: "pointer" }}
-                    className="form-control"
-                    onChange={handlechange}
-                  />
-                </div>
-                <div className="col-6">
-                  <label>End Date </label>
-                  <input
-                    type="date"
-                    id="shipper3"
-                    name="endDate"
-                    style={{ cursor: "pointer" }}
-                    className="form-control"
-                    onChange={handlechange}
-                  />
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-6">
-                  <label>Freight</label>
-                  <select
-                    name="freight"
-                    onChange={handlechange}
-                    className="form-control"
-                  >
-                    <option value="">Select...</option>
-                    <option value="Sea">Sea</option>
-                    <option value="Air">Air</option>
-                    <option value="Road">Road</option>
-                  </select>
-                </div>
-                <div className="col-6">
-                  <label>freight Type </label>
-                  <select
-                    name="type"
-                    onChange={handlechange}
-                    className="form-control"
-                  >
-                    <option value="">Select...</option>
-                    <option value="express">Express</option>
-                    <option value="normal">Normal</option>
-                  </select>
-                </div>
-              </div>
-              <Button variant="contained" onClick={postData}>
-                Apply
-              </Button>
             </Box>
           </Modal>
         </div>

@@ -15,7 +15,7 @@
 // import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 // import Swal from "sweetalert2";
 // import SupportAgentSharpIcon from "@mui/icons-material/SupportAgentSharp";
-// import CloseIcon from "@mui/icons-material/Close";
+// 
 // const pageSize = 10;
 // export default function Managefreight() {
 //   const navigate = useNavigate();
