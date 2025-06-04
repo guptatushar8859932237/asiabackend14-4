@@ -22,7 +22,7 @@ export default function MAnageFreightDetails() {
   const [data10, setData10] = useState({});
   const [data11, setData11] = useState({});
   const info = infolocation?.state?.data;
-  console.log(infolocation?.state?.data);
+  console.log(infolocation?.state);
   console.log(infolocation.state.data);
 
 
@@ -32,7 +32,7 @@ export default function MAnageFreightDetails() {
 
   const getalldata = async() => {
   try {
-
+console.log(info?.order_id)
     const datapost={orderId:info?.order_id}
     const response = await axios.post(`${process.env.REACT_APP_BASE_URL}OrderDetailsById`,datapost)
     setData(response.data.data[0]);

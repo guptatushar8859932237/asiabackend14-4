@@ -81,10 +81,13 @@ export default function Order() {
     navigate("/Admin/bookinginstruction", { state: { data: alldaatat[0] } });
   };
   const handledeliveryEye = (id) => {
-    const alldaatat = data.filter((item) => {
+    console.log(id);
+    console.log(pagenation)
+    const alldaatat = pagenation.data.filter((item) => {
       return item.id === id;
     });
     console.log(alldaatat[0]);
+    console.log(alldaatat);
     navigate("/Admin/OrderDetails", { state: { data: alldaatat[0] } });
   };
   const track = async (id) => {
